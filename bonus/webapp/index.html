@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TokenizeArt 42 — Mint</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="card">
+    <header>
+      <h1>TokenizeArt 42</h1>
+      <p class="sub">Mint your 42 NFT on BNB Smart Chain Testnet (chainId 97).</p>
+    </header>
+
+    <section class="preview" id="preview">
+      <!-- The on-chain SVG preview is fetched after connection -->
+    </section>
+
+    <label>Contract variant</label>
+    <select id="mode">
+      <option value="ipfs">IPFS-backed (TokenizeArt)</option>
+      <option value="onchain">Fully on-chain (TokenizeArt42OnChain)</option>
+    </select>
+
+    <label>Contract address</label>
+    <input id="contract" placeholder="0x...">
+
+    <label>Recipient (blank = your wallet)</label>
+    <input id="to" placeholder="0x...">
+
+    <label id="uriLabel">Token URI (IPFS mode only)</label>
+    <input id="uri" placeholder="ipfs://.../metadata.json">
+
+    <div class="row">
+      <button id="connect">Connect wallet</button>
+      <button id="mint" disabled>Mint</button>
+    </div>
+
+    <pre id="log">Idle.</pre>
+
+    <footer>
+      <a href="https://testnet.bscscan.com" target="_blank" rel="noreferrer">BscScan Testnet</a>
+      &middot;
+      <a href="https://www.bnbchain.org/en/testnet-faucet" target="_blank" rel="noreferrer">tBNB faucet</a>
+    </footer>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

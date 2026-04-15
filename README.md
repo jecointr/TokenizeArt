@@ -12,7 +12,8 @@
 ├── code/                # Solidity + Hardhat project (smart contract source)
 ├── deployment/          # deploy script + instructions
 ├── mint/                # mint script, ownerOf helper, metadata.json
-└── documentation/       # full project documentation
+├── documentation/       # full project documentation
+└── bonus/               # bonus chapter: on-chain contract + web dApp
 ```
 
 ## Choices & reasons (subject requirement)
@@ -77,6 +78,20 @@ Full step-by-step instructions live in
 - **BscScan**: `https://testnet.bscscan.com/address/<CONTRACT_ADDRESS>`
 - **IPFS image**:    `ipfs://_________________________/nft.png`
 - **IPFS metadata**: `ipfs://_________________________/metadata.json`
+
+## Bonus
+
+All three bonuses listed in the subject are implemented — see
+[`bonus/README.md`](bonus/README.md):
+
+1. **Beautiful NFT** — a stylized SVG of the number `42`.
+2. **Minting website with GUI** — zero-build static dApp in
+   [`bonus/webapp/`](bonus/webapp/) using ethers v6 + MetaMask.
+3. **Fully on-chain inscriptions** — a second contract
+   [`TokenizeArt42OnChain`](code/contracts/TokenizeArt42OnChain.sol)
+   that stores metadata and SVG image directly in contract bytecode
+   (`data:application/json;base64,...` + `data:image/svg+xml;base64,...`),
+   with zero off-chain dependency.
 
 ## License
 

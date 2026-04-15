@@ -8,7 +8,9 @@
     "test": "hardhat test",
     "deploy": "hardhat run ../deployment/deploy.js --network bscTestnet",
     "mint": "hardhat run ../mint/mint.js --network bscTestnet",
-    "owner": "hardhat run ../mint/ownerOf.js --network bscTestnet"
+    "owner": "hardhat run ../mint/ownerOf.js --network bscTestnet",
+    "deploy:onchain": "hardhat run ../bonus/deploy-onchain.js --network bscTestnet",
+    "mint:onchain": "hardhat run ../bonus/mint-onchain.js --network bscTestnet"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
