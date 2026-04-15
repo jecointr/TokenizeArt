@@ -1,0 +1,14 @@
+{
+  "name": "42 Ascending Eagle",
+  "description": "TokenizeArt NFT minted for the 42 school project. A unique digital artwork honoring the 42 spirit, stored on IPFS and secured on the BNB Smart Chain.",
+  "image": "ipfs://REPLACE_WITH_IMAGE_CID/nft.png",
+  "external_url": "https://42.fr",
+  "artist": "jecointr",
+  "attributes": [
+    { "trait_type": "Artist",     "value": "jecointr" },
+    { "trait_type": "Collection", "value": "TokenizeArt42" },
+    { "trait_type": "Title",      "value": "Ascending Eagle" },
+    { "trait_type": "Edition",    "value": "1 of 1" },
+    { "trait_type": "School",     "value": "42" }
+  ]
+}

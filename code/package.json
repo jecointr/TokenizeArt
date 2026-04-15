@@ -1,0 +1,21 @@
+{
+  "name": "tokenizeart",
+  "version": "1.0.0",
+  "description": "42 TokenizeArt — BEP-721 NFT on BSC Testnet",
+  "private": true,
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run ../deployment/deploy.js --network bscTestnet",
+    "mint": "hardhat run ../mint/mint.js --network bscTestnet",
+    "owner": "hardhat run ../mint/ownerOf.js --network bscTestnet"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5"
+  }
+}
