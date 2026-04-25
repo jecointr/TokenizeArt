@@ -1,8 +1,8 @@
 // Mints one on-chain NFT from the already-deployed TokenizeArt42OnChain contract.
 // No token URI needed — the artwork lives inside the contract itself.
 //
-// Run from `code/`: `npx hardhat run ../bonus/mint-onchain.js --network bscTestnet`
-const hre = require("hardhat");
+// Run from `code/`: `npx hardhat run ../bonus/mint-onchain.js --network sepolia`
+const hre = require(require.resolve("hardhat", { paths: [process.cwd()] }));
 
 async function main() {
   const { ONCHAIN_CONTRACT_ADDRESS, MINT_TO } = process.env;

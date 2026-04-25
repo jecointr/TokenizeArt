@@ -70,14 +70,26 @@ Full step-by-step instructions live in
 [`deployment/README.md`](deployment/README.md) and
 [`mint/README.md`](mint/README.md).
 
-## Public deployment (to fill in after running the scripts)
+## Public deployment
+
+### Mandatory — IPFS-backed contract (TokenizeArt)
 
 - **Network**: Ethereum Sepolia Testnet (`chainId = 11155111`)
-- **Contract address**: `0x________________________________________`
-- **Transaction hash**: `0x________________________________________`
-- **Etherscan**: `https://sepolia.etherscan.io/address/<CONTRACT_ADDRESS>`
-- **IPFS image**:    `ipfs://_________________________/nft.png`
-- **IPFS metadata**: `ipfs://_________________________/metadata.json`
+- **Contract address**: `0xB96c9dabA15F160Dc18575180EC8795b70C046bc`
+- **Owner / Minter**: `0xf9dD169A62De3Aa05A0A062517CebE0D647e104a`
+- **Token ID**: `1`
+- **Mint transaction**: `0x2066d69aaa6e7c393ef6a005d2c6147b0275becb5882bc44a12f152114dc8a0f`
+- **Etherscan**: https://sepolia.etherscan.io/address/0xB96c9dabA15F160Dc18575180EC8795b70C046bc
+- **IPFS image**: `ipfs://bafkreibnainoinpfzlnjfwsupb7ban4kxy77jm3bxzftich3dbz4d5htrq/nft.png`
+- **IPFS metadata**: `ipfs://bafkreiaebebmkgfwnwubgrnwmjzboerrhdupthdxfsf4h72d4on3gqyzaa/metadata.json`
+
+### Bonus — Fully on-chain contract (TokenizeArt42OnChain)
+
+- **Contract address**: `0x93c8275C14286Ebd38C4832DC576BA3ce810e39c`
+- **Owner / Minter**: `0xf9dD169A62De3Aa05A0A062517CebE0D647e104a`
+- **Token ID**: `0`
+- **Mint transaction**: `0x23afa7683da882786a43837b90f0b3ac0e8a4ee5085c6ce4eff4fda3a703c7ab`
+- **Etherscan**: https://sepolia.etherscan.io/address/0x93c8275C14286Ebd38C4832DC576BA3ce810e39c
 
 ## Bonus
 

@@ -3,14 +3,14 @@
 //
 // After success, copy the printed address into `code/.env` (CONTRACT_ADDRESS)
 // and into the root README.md / documentation.
-const hre = require("hardhat");
+const hre = require(require.resolve("hardhat", { paths: [process.cwd()] }));
 
 async function main() {
   const [deployer] = await hre.ethers.getSigners();
   console.log("Deploying TokenizeArt with account:", deployer.address);
 
   const balance = await hre.ethers.provider.getBalance(deployer.address);
-  console.log("Deployer balance:", hre.ethers.formatEther(balance), "tBNB");
+  console.log("Deployer balance:", hre.ethers.formatEther(balance), "ETH");
 
   const Factory = await hre.ethers.getContractFactory("TokenizeArt");
   const contract = await Factory.deploy(deployer.address);

@@ -4,7 +4,7 @@
 //
 // Usage (from the `code/` folder):
 //   TOKEN_ID=0 npm run owner
-const hre = require("hardhat");
+const hre = require(require.resolve("hardhat", { paths: [process.cwd()] }));
 
 async function main() {
   const { CONTRACT_ADDRESS } = process.env;

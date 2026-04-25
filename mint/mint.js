@@ -2,7 +2,7 @@
 // Reads CONTRACT_ADDRESS, TOKEN_URI and (optional) MINT_TO from code/.env.
 //
 // Run from the `code/` folder with: `npm run mint`
-const hre = require("hardhat");
+const hre = require(require.resolve("hardhat", { paths: [process.cwd()] }));
 
 async function main() {
   const { CONTRACT_ADDRESS, TOKEN_URI, MINT_TO } = process.env;

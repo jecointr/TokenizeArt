@@ -1,6 +1,6 @@
 // Deploys the fully on-chain bonus contract (TokenizeArt42OnChain) to BSC Testnet.
-// Run from the `code/` folder: `npx hardhat run ../bonus/deploy-onchain.js --network bscTestnet`
-const hre = require("hardhat");
+// Run from the `code/` folder: `npx hardhat run ../bonus/deploy-onchain.js --network sepolia`
+const hre = require(require.resolve("hardhat", { paths: [process.cwd()] }));
 
 async function main() {
   const [deployer] = await hre.ethers.getSigners();
