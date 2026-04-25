@@ -1,16 +1,16 @@
-// Minimal dApp — connects to MetaMask, switches to BSC Testnet, and calls
+// Minimal dApp — connects to MetaMask, switches to Sepolia, and calls
 // `safeMint` on either the IPFS-backed or the fully on-chain TokenizeArt
 // contract. No build step: ethers is loaded as an ES module from a CDN so
 // you can open `index.html` directly (or serve it with `python3 -m http.server`).
 import { BrowserProvider, Contract } from "https://esm.sh/ethers@6.13.2";
 
-// BSC Testnet network parameters (EIP-3085 / EIP-3326).
-const BSC_TESTNET = {
-  chainId: "0x61", // 97
-  chainName: "BNB Smart Chain Testnet",
-  nativeCurrency: { name: "tBNB", symbol: "tBNB", decimals: 18 },
-  rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
-  blockExplorerUrls: ["https://testnet.bscscan.com"],
+// Ethereum Sepolia Testnet network parameters (EIP-3085 / EIP-3326).
+const SEPOLIA = {
+  chainId: "0xaa36a7", // 11155111
+  chainName: "Ethereum Sepolia Testnet",
+  nativeCurrency: { name: "SepoliaETH", symbol: "ETH", decimals: 18 },
+  rpcUrls: ["https://rpc.sepolia.org"],
+  blockExplorerUrls: ["https://sepolia.etherscan.io"],
 };
 
 // Minimal ABIs — only the functions the dApp actually calls.
@@ -42,19 +42,19 @@ function syncUriField() {
 $("mode").addEventListener("change", syncUriField);
 syncUriField();
 
-async function ensureBscTestnet() {
+async function ensureSepolia() {
   const net = await provider.getNetwork();
-  if (net.chainId === 97n) return;
+  if (net.chainId === 11155111n) return;
   try {
     await window.ethereum.request({
       method: "wallet_switchEthereumChain",
-      params: [{ chainId: BSC_TESTNET.chainId }],
+      params: [{ chainId: SEPOLIA.chainId }],
     });
   } catch (e) {
     if (e.code === 4902) {
       await window.ethereum.request({
         method: "wallet_addEthereumChain",
-        params: [BSC_TESTNET],
+        params: [SEPOLIA],
       });
     } else {
       throw e;
@@ -84,7 +84,7 @@ $("connect").addEventListener("click", async () => {
   try {
     provider = new BrowserProvider(window.ethereum);
     await provider.send("eth_requestAccounts", []);
-    await ensureBscTestnet();
+    await ensureSepolia();
     signer = await provider.getSigner();
     const me = await signer.getAddress();
     log("Connected as " + me);
@@ -124,7 +124,7 @@ $("mint").addEventListener("click", async () => {
       "tokenId: " + tokenId + "\n" +
       "owner:   " + owner + "\n" +
       "block:   " + receipt.blockNumber + "\n" +
-      "https://testnet.bscscan.com/tx/" + tx.hash
+      "https://sepolia.etherscan.io/tx/" + tx.hash
     );
   } catch (e) {
     log("Error: " + (e.shortMessage || e.message || e));

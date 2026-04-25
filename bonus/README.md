@@ -17,7 +17,7 @@ This folder gathers every bonus item listed in the subject (chapter V):
    URI embedding a `data:image/svg+xml;base64` image, so nothing lives
    off-chain — no IPFS, no HTTP, no server.
 
-> ⚠️ The bonus part is only evaluated if the mandatory part is **perfect**.
+> The bonus part is only evaluated if the mandatory part is **perfect**.
 > Make sure the main contract is deployed, the NFT is minted, and the
 > public address + IPFS CIDs are filled in the root `README.md` before
 > claiming bonus points.
@@ -28,8 +28,8 @@ This folder gathers every bonus item listed in the subject (chapter V):
 
 The mandatory contract points at IPFS, which is already distributed, but
 if the CID ever becomes unpinned the artwork effectively disappears.
-The on-chain variant removes that failure mode: as long as the BSC
-Testnet exists, the NFT (artwork included) exists.
+The on-chain variant removes that failure mode: as long as the Sepolia
+chain exists, the NFT (artwork included) exists.
 
 ### How it works
 
@@ -65,7 +65,7 @@ npm run mint:onchain
 ```bash
 # Full data URI (long!)
 cd code
-npx hardhat console --network bscTestnet
+npx hardhat console --network sepolia
 > const c = await ethers.getContractAt("TokenizeArt42OnChain", process.env.ONCHAIN_CONTRACT_ADDRESS)
 > await c.tokenURI(0)
 ```
@@ -98,25 +98,25 @@ ethers is loaded from `https://esm.sh`).
 
 ### Features
 
-- **Connect wallet** button → requests accounts from MetaMask and
-  auto-switches to BSC Testnet (adds the network via EIP-3085 if the
+- **Connect wallet** button -> requests accounts from MetaMask and
+  auto-switches to Sepolia (adds the network via EIP-3085 if the
   user does not have it yet).
-- **Contract variant** selector → pick the IPFS-backed contract or the
+- **Contract variant** selector -> pick the IPFS-backed contract or the
   fully on-chain one. The `tokenURI` field is hidden automatically when
   the on-chain variant is selected (no URI needed).
-- **Live SVG preview** → when you paste the address of the on-chain
+- **Live SVG preview** -> when you paste the address of the on-chain
   contract, the dApp calls `image()` and renders the artwork inline.
-- **Mint** button → sends the transaction, waits for it to be mined,
-  and then calls `ownerOf` + `totalMinted` to confirm the result. A
-  BscScan link is printed so the evaluator can double-check.
-- **No secrets in the browser** → the private key never leaves the
+- **Mint** button -> sends the transaction, waits for it to be mined,
+  and then calls `ownerOf` + `totalMinted` to confirm the result. An
+  Etherscan link is printed so the evaluator can double-check.
+- **No secrets in the browser** -> the private key never leaves the
   wallet; the dApp only talks to MetaMask's injected provider.
 
 ## 3. Beautiful NFT
 
 Tastes vary, but the artwork in the on-chain contract is:
 
-- Pure SVG → vector, infinite resolution, reproducible bit-for-bit.
+- Pure SVG -> vector, infinite resolution, reproducible bit-for-bit.
 - A deep-blue radial grid in the background, echoing the 42 cosmic vibe.
 - A giant `42` number in a linear gradient from sky blue to violet.
 - The `TOKENIZEART` wordmark and the `by jecointr` signature at the
@@ -127,7 +127,7 @@ You can extract it anytime:
 
 ```bash
 cd code
-npx hardhat console --network bscTestnet
+npx hardhat console --network sepolia
 > const c = await ethers.getContractAt("TokenizeArt42OnChain", process.env.ONCHAIN_CONTRACT_ADDRESS)
 > require("fs").writeFileSync("/tmp/nft.svg", await c.image())
 ```

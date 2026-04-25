@@ -3,7 +3,7 @@ require("dotenv").config();
 
 // Secrets are read from a local .env file (never commit it).
 // See .env.example for the expected variables.
-const { BSC_TESTNET_RPC, PRIVATE_KEY, BSCSCAN_API_KEY } = process.env;
+const { SEPOLIA_RPC, PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -23,16 +23,16 @@ module.exports = {
   networks: {
     // Default local Hardhat Network for tests / dry-runs.
     hardhat: {},
-    // BNB Smart Chain Testnet — official public RPC as a default.
-    bscTestnet: {
-      url: BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545",
-      chainId: 97,
+    // Ethereum Sepolia Testnet — free faucet, no minimum balance required.
+    sepolia: {
+      url: SEPOLIA_RPC || "https://rpc.sepolia.org",
+      chainId: 11155111,
       accounts: PRIVATE_KEY ? [PRIVATE_KEY] : [],
     },
   },
   etherscan: {
     apiKey: {
-      bscTestnet: BSCSCAN_API_KEY || "",
+      sepolia: ETHERSCAN_API_KEY || "",
     },
   },
 };

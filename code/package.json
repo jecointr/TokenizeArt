@@ -1,16 +1,16 @@
 {
   "name": "tokenizeart",
   "version": "1.0.0",
-  "description": "42 TokenizeArt — BEP-721 NFT on BSC Testnet",
+  "description": "42 TokenizeArt — ERC-721 NFT on Ethereum Sepolia Testnet",
   "private": true,
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "deploy": "hardhat run ../deployment/deploy.js --network bscTestnet",
-    "mint": "hardhat run ../mint/mint.js --network bscTestnet",
-    "owner": "hardhat run ../mint/ownerOf.js --network bscTestnet",
-    "deploy:onchain": "hardhat run ../bonus/deploy-onchain.js --network bscTestnet",
-    "mint:onchain": "hardhat run ../bonus/mint-onchain.js --network bscTestnet"
+    "deploy": "hardhat run ../deployment/deploy.js --network sepolia",
+    "mint": "hardhat run ../mint/mint.js --network sepolia",
+    "owner": "hardhat run ../mint/ownerOf.js --network sepolia",
+    "deploy:onchain": "hardhat run ../bonus/deploy-onchain.js --network sepolia",
+    "mint:onchain": "hardhat run ../bonus/mint-onchain.js --network sepolia"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",

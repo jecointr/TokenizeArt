@@ -1,12 +1,12 @@
 # Mint
 
 This folder groups the files needed to **mint** one token of the deployed
-`TokenizeArt` BEP-721 collection on BSC Testnet.
+`TokenizeArt` ERC-721 collection on Ethereum Sepolia Testnet.
 
 ## 1. Upload the image to IPFS
 
 Pick any IPFS provider (Pinata, web3.storage, NFT.storage, a local
-`ipfs` node…). Upload `nft.png` (the artwork containing the number `42`)
+`ipfs` node...). Upload `nft.png` (the artwork containing the number `42`)
 and copy the returned CID, e.g. `bafybeigdyr...`.
 
 ## 2. Patch `metadata.json`
@@ -47,6 +47,6 @@ check the subject asks for.
 
 ## 6. View the NFT
 
-- BscScan: `https://testnet.bscscan.com/address/<CONTRACT_ADDRESS>`
-- Any BEP-721 compatible wallet connected to BSC Testnet will fetch
+- Etherscan: `https://sepolia.etherscan.io/address/<CONTRACT_ADDRESS>`
+- Any ERC-721 compatible wallet connected to Sepolia will fetch
   the metadata from IPFS and display the image.

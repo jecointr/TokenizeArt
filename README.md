@@ -1,7 +1,7 @@
 # TokenizeArt
 
 > 42 school project — build your own NFT.
-> A minimal **BEP-721** collection deployed on **BNB Smart Chain Testnet**,
+> A minimal **ERC-721** collection deployed on **Ethereum Sepolia Testnet**,
 > with its image and metadata pinned on **IPFS**.
 
 ## Repository layout
@@ -20,11 +20,11 @@
 
 | Decision | Why |
 |---|---|
-| **BNB Smart Chain Testnet** (chainId `97`) | The subject is a 42 × BNB Chain collaboration. The Testnet is free (tBNB faucet), so no real money is ever at risk. |
-| **BEP-721 standard** | BEP-721 is the BNB Chain name for the ERC-721 NFT standard — the de-facto NFT standard on EVM chains. |
+| **Ethereum Sepolia Testnet** (chainId `11155111`) | Sepolia is Ethereum's primary testnet. Its faucet is free with no minimum balance required, and Etherscan support is excellent. |
+| **ERC-721 standard** | The de-facto NFT standard on EVM-compatible blockchains. |
 | **Solidity `0.8.28` (Cancun)** | Modern stable compiler with built-in overflow checks, custom errors, and `mcopy` (required by OpenZeppelin v5). |
 | **OpenZeppelin v5** (`ERC721URIStorage` + `Ownable`) | Battle-tested, audited base contracts. Avoid re-inventing crypto primitives and focus on project-specific logic. |
-| **Hardhat + hardhat-toolbox** | Modern replacement for Truffle. Fast compile, in-memory test network, ethers v6, Chai matchers, gas reporter and BscScan verify plugin all in one install. |
+| **Hardhat + hardhat-toolbox** | Modern replacement for Truffle. Fast compile, in-memory test network, ethers v6, Chai matchers, gas reporter and Etherscan verify plugin all in one install. |
 | **IPFS for image + metadata** | Required by the subject ("distributed registry technology"). Nothing depends on a centralized server. |
 | **`onlyOwner` mint function** | Enforces the "ownership / privileges" security requirement — only the deployer can mint new tokens. |
 | **`safeMint` instead of `_mint`** | Makes sure the recipient contract can handle ERC-721 tokens (prevents locked NFTs). |
@@ -53,7 +53,7 @@ npx hardhat test
 # 3. Configure your wallet
 cp .env.example .env      # then edit PRIVATE_KEY
 
-# 4. Deploy to BSC Testnet
+# 4. Deploy to Sepolia
 npm run deploy
 
 # 5. Upload nft.png + metadata.json to IPFS, then set
@@ -72,10 +72,10 @@ Full step-by-step instructions live in
 
 ## Public deployment (to fill in after running the scripts)
 
-- **Network**: BNB Smart Chain Testnet (`chainId = 97`)
+- **Network**: Ethereum Sepolia Testnet (`chainId = 11155111`)
 - **Contract address**: `0x________________________________________`
 - **Transaction hash**: `0x________________________________________`
-- **BscScan**: `https://testnet.bscscan.com/address/<CONTRACT_ADDRESS>`
+- **Etherscan**: `https://sepolia.etherscan.io/address/<CONTRACT_ADDRESS>`
 - **IPFS image**:    `ipfs://_________________________/nft.png`
 - **IPFS metadata**: `ipfs://_________________________/metadata.json`
 
